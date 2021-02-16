@@ -1,11 +1,14 @@
 package _00_JButtons_with_Lambdas;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class LambdaButtons {
+public class LambdaButtons{
 	private JFrame window = new JFrame();
 	private JButton addNumbers = new JButton("ADD 2 Numbers");
 	private JButton randNumber = new JButton("RANDOM NUMBER");
@@ -23,11 +26,22 @@ public class LambdaButtons {
 		
 		window.setVisible(true);
 		window.pack();
+		
+		addNumbers.addActionListener((ActionEvent e)->System.out.println(1+1));
+		randNumber.addActionListener((ActionEvent e)->{
+			Random r=new Random();
+			int s=r.nextInt(6);
+			System.out.println(s);
+		});
+		tellAJoke.addActionListener((ActionEvent e)->System.out.println("Knock Knock"));
 	}
 	
 	public static void main(String[] args) {
 		new LambdaButtons();
+	
 	}
+
+	
 	
 	
 }
